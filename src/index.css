@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: "DM Sans";
+	src: url("./assets/fonts/normal.ttf");
+}
+
+@font-face {
+	font-family: "DM Sans Italic";
+	src: url("./assets/fonts/italic.ttf");
+}
+
+* {
+	font-family: "DM Sans";
+	font-weight: normal;
+}
+
+*.italic {
+	font-family: "DM Sans Italic";
+	font-weight: normal;
+	font-style: italic;
+}
