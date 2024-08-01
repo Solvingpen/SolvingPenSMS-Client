@@ -89,7 +89,7 @@ const FormOne = ({
 					type="password"
 					errorMessages={{
 						invalid:
-							"Password must contain 1 uppercase, 1 lowercase and 1 special character",
+							"Password must contain at least 1 uppercase, 1 lowercase, 1 number and 1 special character",
 						empty: "Password cannot be empty"
 					}}
 					pattern={
