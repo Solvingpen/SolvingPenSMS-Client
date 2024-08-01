@@ -22,3 +22,15 @@
 	font-weight: normal;
 	font-style: italic;
 }
+
+body {
+	color: #212529;
+}
+
+.auth-page {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url("./assets/images/wizard.jpg");
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
