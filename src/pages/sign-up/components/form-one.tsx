@@ -30,6 +30,7 @@ const FormOne = ({
 			className="space-y-24">
 			<div className="max-w-[320px] mx-auto space-y-3">
 				<Input
+					autoComplete="name"
 					errors={errors}
 					register={register}
 					id="first-name"
@@ -46,6 +47,7 @@ const FormOne = ({
 					required
 				/>
 				<Input
+					autoComplete="additional-name"
 					errors={errors}
 					register={register}
 					id="last-name"
@@ -62,6 +64,7 @@ const FormOne = ({
 					required
 				/>
 				<Input
+					autoComplete="email"
 					errors={errors}
 					register={register}
 					id="email"
@@ -81,6 +84,7 @@ const FormOne = ({
 					required
 				/>
 				<Input
+					autoComplete="new-password"
 					errors={errors}
 					register={register}
 					id="password"
@@ -103,6 +107,7 @@ const FormOne = ({
 					<EmailVerificationInput />
 				</div> */}
 				<Input
+					autoComplete="tel"
 					errors={errors}
 					register={register}
 					id="phone-number"

@@ -67,6 +67,7 @@ const FormTwo = ({
 			className="space-y-24">
 			<div className="max-w-[320px] mx-auto space-y-3">
 				<Input
+					autoComplete="off"
 					errors={errors}
 					register={register}
 					id="school-name"
@@ -84,6 +85,7 @@ const FormTwo = ({
 				/>
 				<PortalUrlInput errors={errors} register={register} />
 				<Input
+					autoComplete="country-name"
 					errors={errors}
 					register={register}
 					id="country"
