@@ -17,18 +17,21 @@ const FormTwo = ({
 		register,
 		handleSubmit,
 		setError,
+		clearErrors,
 		formState: { errors, isValid }
 	} = useForm({ mode: "onBlur" });
 	const [schoolTypes, setSchoolTypes] = useState<string[]>([]);
 
 	useEffect(
-		() =>
+		() => (
+			clearErrors(),
 			setFormData((prev: any) => {
 				return {
 					...prev,
 					schoolTypes
 				};
-			}),
+			})
+		),
 		[schoolTypes]
 	);
 
@@ -132,7 +135,7 @@ const FormTwo = ({
 					<div className="flex justify-between flex-wrap">
 						<Checkbox
 							onChange={e => {
-								if (e.target.checked) {
+								if (e.currentTarget.checked) {
 									setSchoolTypes([
 										...schoolTypes,
 										e.currentTarget.getAttribute(
@@ -159,15 +162,21 @@ const FormTwo = ({
 						/>
 						<Checkbox
 							onChange={e => {
-								if (e.target.checked) {
+								if (e.currentTarget.checked) {
 									setSchoolTypes([
 										...schoolTypes,
-										e.target.name
+										e.currentTarget.getAttribute(
+											"name"
+										) as string
 									]);
 								} else {
 									setSchoolTypes(prev => {
 										const schoolTypeIndex = prev.findIndex(
-											value => value === e.target.name
+											value =>
+												value ===
+												(e.currentTarget.getAttribute(
+													"name"
+												) as string)
 										);
 										prev.splice(schoolTypeIndex, 1);
 										return [...prev];
@@ -180,15 +189,21 @@ const FormTwo = ({
 						/>
 						<Checkbox
 							onChange={e => {
-								if (e.target.checked) {
+								if (e.currentTarget.checked) {
 									setSchoolTypes([
 										...schoolTypes,
-										e.target.name
+										e.currentTarget.getAttribute(
+											"name"
+										) as string
 									]);
 								} else {
 									setSchoolTypes(prev => {
 										const schoolTypeIndex = prev.findIndex(
-											value => value === e.target.name
+											value =>
+												value ===
+												(e.currentTarget.getAttribute(
+													"name"
+												) as string)
 										);
 										prev.splice(schoolTypeIndex, 1);
 										return [...prev];
