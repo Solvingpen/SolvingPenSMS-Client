@@ -93,14 +93,10 @@ const FormOne = ({
 					type="password"
 					errorMessages={{
 						invalid:
-							"Password must contain at least 1 uppercase, 1 lowercase, 1 number and 1 special character",
+							"No spacing in password. Password must be at least six characters long",
 						empty: "Password cannot be empty"
 					}}
-					pattern={
-						RegExp(
-							/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
-						) as unknown as string
-					}
+					pattern={RegExp(/^[^\s]{6,}$/) as unknown as string}
 					required
 				/>
 				{/* <div className="max-w-[320px]">

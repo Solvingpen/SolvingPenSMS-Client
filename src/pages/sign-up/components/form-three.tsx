@@ -1,6 +1,7 @@
-import type { Dispatch, SetStateAction } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import Checkbox from "../../../components/checkbox";
 import NavButton from "./nav-button";
+import SuccessModal from "./success-modal";
 
 /** Third form on the sign up page */
 const FormThree = ({
@@ -10,9 +11,14 @@ const FormThree = ({
 	formData: any;
 	setCurrentPage: Dispatch<SetStateAction<1 | 2 | 3>>;
 }) => {
+	const [portalCreated, setPortalCreated] = useState<boolean>(false);
 	return (
 		<form
-			onSubmit={e => (e.preventDefault(), console.log("Form", formData))}
+			onSubmit={e => (
+				e.preventDefault(),
+				console.log("Form", formData),
+				setPortalCreated(true)
+			)}
 			className="">
 			<div className="max-w-[500px] mx-auto space-y-4 py-12">
 				<Checkbox
@@ -42,6 +48,7 @@ const FormThree = ({
 					Submit
 				</button>
 			</div>
+			{portalCreated && <SuccessModal />}
 		</form>
 	);
 };

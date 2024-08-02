@@ -23,7 +23,7 @@ const PortalUrlInput = ({
 					errors && errors["portalUrl"] ? errorClasses : validClasses
 				}bg-[#D9D9D9] flex items-stretch border border-[#8B8181] rounded-md overflow-hidden`}>
 				<label
-					className="text-[#6C757D] p-2 whitespace-nowrap text-[15.13px] flex-1"
+					className="text-[#484e53] p-2 whitespace-nowrap text-[15.13px] flex-1"
 					htmlFor="portal-url">
 					https://solvingpenschools.com/
 				</label>
