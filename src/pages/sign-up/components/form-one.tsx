@@ -42,7 +42,9 @@ const FormOne = ({
 						empty: "First name cannot be empty"
 					}}
 					pattern={
-						RegExp(/^[A-Za-zÀ-ÖØ-öø-ÿ'’-]+$/) as unknown as string
+						RegExp(
+							/^[A-Za-z0-9\s\-'\.À-ÖØ-öø-ÿ'’]+$/
+						) as unknown as string
 					}
 					required
 				/>
@@ -59,7 +61,9 @@ const FormOne = ({
 						empty: "Last name cannot be empty"
 					}}
 					pattern={
-						RegExp(/^[A-Za-zÀ-ÖØ-öø-ÿ'’-]+$/) as unknown as string
+						RegExp(
+							/^[A-Za-z0-9\s\-'\.À-ÖØ-öø-ÿ'’]+$/
+						) as unknown as string
 					}
 					required
 				/>

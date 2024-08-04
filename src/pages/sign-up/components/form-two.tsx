@@ -4,6 +4,8 @@ import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import NavButton from "./nav-button";
 import Checkbox from "../../../components/checkbox";
 import PortalUrlInput from "./portal-url-input";
+import Select from "../../../components/select";
+import states from "../../../assets/states.json";
 
 /** Second form on the sign up page */
 const FormTwo = ({
@@ -98,20 +100,17 @@ const FormTwo = ({
 					}}
 					pattern={RegExp(/^[A-Za-z\s\-']+$/) as unknown as string}
 					required
+					value={"Nigeria"}
+					disabled
 				/>
-				<Input
-					errors={errors}
-					register={register}
+				<Select
 					id="state"
-					name="state"
 					label="State"
-					type="state"
-					errorMessages={{
-						invalid: "Please enter a valid state",
-						empty: "State cannot be empty"
-					}}
-					pattern={RegExp(/^[A-Za-z\s\-']+$/) as unknown as string}
-					required
+					name="state"
+					options={states}
+					register={register}
+					errors={errors}
+					errorMessages={{ empty: "Please select a state" }}
 				/>
 				<Input
 					errors={errors}
