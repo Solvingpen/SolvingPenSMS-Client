@@ -42,7 +42,7 @@ const Input = ({
 									errors && errors[name]
 										? errorClasses
 										: validClasses
-								} placeholder:text-sm min-w-0 p-1 outline-none focus:outline-none flex-1`}
+								} placeholder:text-sm disabled:opacity-70 disabled:cursor-not-allowed min-w-0 p-1 outline-none focus:outline-none flex-1`}
 								type={isPasswordVisible ? "text" : "password"}
 								{...register(name, {
 									required: {
@@ -72,11 +72,7 @@ const Input = ({
 						) : (
 							<input
 								{...rest}
-								className={`${
-									errors && errors[name]
-										? errorClasses
-										: validClasses
-								} placeholder:text-sm min-w-0 p-1 outline-none focus:outline-none flex-1`}
+								className={`${validClasses} placeholder:text-sm disabled:opacity-70 disabled:cursor-not-allowed min-w-0 p-1 outline-none focus:outline-none flex-1`}
 								type={isPasswordVisible ? "text" : "password"}
 							/>
 						)}
@@ -109,7 +105,7 @@ const Input = ({
 								errors && errors[name]
 									? errorClasses
 									: validClasses
-							} placeholder:text-sm min-w-0 p-1 rounded-md border outline-none focus:outline-none`}
+							} placeholder:text-sm disabled:opacity-70 disabled:cursor-not-allowed min-w-0 p-1 rounded-md border outline-none focus:outline-none`}
 							type={type}
 							{...register(name, {
 								required: {
@@ -142,7 +138,7 @@ const Input = ({
 								errors && errors[name]
 									? errorClasses
 									: validClasses
-							} placeholder:text-sm min-w-0 p-1 rounded-md border outline-none focus:outline-none`}
+							} placeholder:text-sm disabled:opacity-70 disabled:cursor-not-allowed min-w-0 p-1 rounded-md border outline-none focus:outline-none`}
 							type={type}
 						/>
 					)}
