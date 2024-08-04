@@ -28,3 +28,19 @@ export interface CheckboxProps
 	register?: UseFormRegister<FieldValues>;
 	errors?: FieldErrors<FieldValues>;
 }
+
+export interface SelectProps
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, "className" | "type"> {
+	id: string;
+	label: string;
+	name: string;
+	options: { label: string; value: string }[];
+	max?: number;
+	min?: number;
+	register?: UseFormRegister<FieldValues>;
+	errors?: FieldErrors<FieldValues>;
+	defaultValue?: string;
+	errorMessages?: {
+		empty?: string;
+	};
+}
