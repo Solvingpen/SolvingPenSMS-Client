@@ -18,6 +18,7 @@ const Input = ({
   register,
   errors,
   pattern,
+  validate,
   ...rest
 }: InputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -65,6 +66,7 @@ const Input = ({
                     value: RegExp(pattern as string),
                     message: errorMessages?.invalid as string,
                   },
+                  validate
                 })}
               />
             ) : (

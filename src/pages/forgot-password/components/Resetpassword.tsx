@@ -16,7 +16,7 @@ const Resetpassword = ({ setAction }: Prop) => {
 
   const {
     register,
-    handleSubmit,
+    handleSubmit, getValues,
     formState: { errors, isValid },
   } = useForm({ mode: "onBlur" });
 
@@ -26,6 +26,7 @@ const Resetpassword = ({ setAction }: Prop) => {
       ...prev,
       [name]: value,
     }));
+    
   };
 
   const onSubmit = async () => {
@@ -85,13 +86,18 @@ const Resetpassword = ({ setAction }: Prop) => {
                 invalid:
                   "No spacing in password. Password must be at least six characters long",
                 empty: "Password cannot be empty",
+                mismatch: "Password do not match",
+              }}
+              validate={{
+                validate: (value: any) =>
+                  value === getValues("password") || "Passwords do not match",
               }}
               pattern={RegExp(/^[^\s]{6,}$/) as unknown as string}
               required
             />
           </div>
           <div className="flex items-center justify-center">
-            <button className="text-white text-sm bg-[#007BFF] px-5 py-3 text-center rounded-lg w-[198px] mt-10">
+            <button className="text-sm inline-flex bg-[#007BFF] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA]">
               UPDATE PASSWORD
             </button>
           </div>

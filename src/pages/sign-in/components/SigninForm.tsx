@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Signin from "..";
 import { useNavigate } from "react-router-dom";
+import Checkbox from "../../../components/checkbox";
 
 interface Signin {
   login: "";
@@ -21,10 +22,11 @@ const SigninForm = () => {
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    const inputvalue = type === 'checkbox' ? checked : value
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: inputvalue,
     }));
   };
 
@@ -45,25 +47,6 @@ const SigninForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="lg:w-[320px] md:w-[320px] w-100 m-auto"
       >
-        <div className=" mb-3">
-          <Input
-            autoComplete=""
-            errors={errors}
-            register={register}
-            placeholder="Select User Account"
-            id="login"
-            name="login"
-            label="Login As"
-            type="text"
-            onChange={handleChange}
-            errorMessages={{
-              invalid: "Use a valid first name",
-              empty: "Login As cannot be empty",
-            }}
-            pattern={RegExp(/^[A-Za-zÀ-ÖØ-öø-ÿ'’-]+$/) as unknown as string}
-            required
-          />
-        </div>
         <div className=" mb-3">
           <Input
             autoComplete=""
@@ -103,10 +86,13 @@ const SigninForm = () => {
           />
         </div>
         <div className="flex items-center gap-2 mb-3">
-          <input type="checkbox" className=" w-[40px] h-[40px]" />
-          <label htmlFor="" className="text-sm">
-            Remind me of my password when am here
-          </label>
+          <Checkbox
+            id={"reminder"}
+            label={"Remind me of my password when am here"}
+            name={"reminder"}
+            register={register}
+            onChange={handleChange}
+          />
         </div>
         <div className="mb-3">
           <p className="text-sm">
@@ -122,11 +108,11 @@ const SigninForm = () => {
         <div className="flex justify-between mb-3">
           <Link
             to={"/"}
-            className="text-white text-sm bg-[#6C757D] px-5 py-3 text-center rounded-lg w-[100px] lg:w-50"
+            className="text-sm inline-flex bg-[#6C757D] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA] "
           >
             BACK
           </Link>
-          <button className="text-white text-sm bg-[#007BFF] px-5 py-3 rounded-lg text-center w-[100px] lg:w-50">
+          <button className="text-sm inline-flex bg-[#007BFF] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA]">
             LOGIN
           </button>
         </div>

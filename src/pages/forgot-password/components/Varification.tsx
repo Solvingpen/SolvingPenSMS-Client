@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Status } from "..";
+import EmailVerificationInput from "../../sign-up/components/email-verification-input";
 
 interface Otp {
   num1: "";
@@ -49,7 +50,7 @@ const Varification = ({ setAction }: Prop) => {
             that mentioned in the email
           </p>
           <div className="flex items-center justify-center gap-5">
-            <input
+            {/* <input
               type="text"
               id="num-1"
               maxLength={1}
@@ -83,9 +84,10 @@ const Varification = ({ setAction }: Prop) => {
               id=""
               {...register("num5", {})}
               className="lg:w-[56px] md:w-[56px] lg:h-[56px] text-center md:h-[56px] w-[36px] h-[36px] bg-[#F7F9FA]] border border-black outline-none px-2 py-2  rounded-md"
-            />
+            /> */}
+            <EmailVerificationInput />
           </div>
-          <button className="text-white text-sm bg-[#007BFF] px-5 py-3 rounded-lg w-[100px] mt-10">
+          <button className="text-sm inline-flex bg-[#007BFF] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA] mt-5">
             RESET
           </button>
           <div className="flex items-center gap-2 pt-5 text-sm">

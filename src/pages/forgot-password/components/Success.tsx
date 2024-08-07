@@ -9,7 +9,7 @@ const Success = () => {
           Password Changed Successfully
         </h2>
         <div className="lg:w-[368px] md:w-[368px] flex flex-col m-auto w-100 ">
-          <div className="h-[306px] bg-[#197EAB] flex flex-col gap-5 justify-center items-center rounded-t-lg">
+          <div className="h-[250px] bg-[#197EAB] flex flex-col gap-5 justify-center items-center rounded-t-lg">
             <div className="w-[49px] h-[49px] bg-[#E7E7E7] rounded-full flex flex-col items-center justify-center">
               <BiCheck className="text-[#197EAB] size-20" />
             </div>
@@ -22,7 +22,7 @@ const Success = () => {
             </p>
             <Link
               to={"/sign-in"}
-              className="text-white bg-[#197EAB] px-5 py-3 text-center rounded-lg lg:w-[193px] md:w-[193px] w-100 mb-3"
+              className="text-sm inline-flex bg-[#007BFF] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA]"
             >
               LOGIN
             </Link>

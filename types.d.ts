@@ -1,23 +1,25 @@
 import type { InputHTMLAttributes, HTMLInputTypeAttribute } from "react";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldErrors, FieldValues, UseFormGetFieldState, UseFormGetValues, UseFormRegister } from "react-hook-form";
 
 export interface InputProps
-	extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
-	type: HTMLInputTypeAttribute;
-	id: string;
-	label: string;
-	name: string;
-	errorMessages?: {
-		empty?: string;
-		invalid?: string;
-		tooShort?: string;
-		tooLong?: string;
-		max?: string;
-		min?: string;
-	};
-	register?: UseFormRegister<FieldValues>;
-	errors?: FieldErrors<FieldValues>;
-	pattern?: string;
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
+  type: HTMLInputTypeAttribute;
+  id: string;
+  label: string;
+  name: string;
+  errorMessages?: {
+    empty?: string;
+    invalid?: string;
+    tooShort?: string;
+    tooLong?: string;
+    max?: string;
+    min?: string;
+    mismatch?: string;
+  };
+  register?: UseFormRegister<FieldValues>;
+  errors?: FieldErrors<FieldValues>;
+  pattern?: string;
+  validate?: RegisterOptions["validate"];
 }
 
 export interface CheckboxProps

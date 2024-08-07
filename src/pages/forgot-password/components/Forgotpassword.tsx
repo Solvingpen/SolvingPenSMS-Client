@@ -2,9 +2,11 @@ import { useForm } from "react-hook-form";
 import Input from "../../../components/input";
 import { Status } from "..";
 import { useState } from "react";
+import Checkbox from "../../../components/checkbox";
 
 interface Email {
   email: "";
+  verify: false;
 }
 
 interface Prop {
@@ -20,10 +22,11 @@ const Forgotpassword = ({ setAction }: Prop) => {
   } = useForm({ mode: "onBlur" });
 
   const handlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    const inputValue = type === 'checkbox' ? checked : value
     setUserEmail((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: inputValue,
     }));
   };
 
@@ -70,13 +73,14 @@ const Forgotpassword = ({ setAction }: Prop) => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <input type="checkbox" className="w-[40px] h-[40px]" />
               <label htmlFor="" className="text-sm">
                 Email Valid
               </label>
-            </div>
-            <button className="text-white text-sm bg-[#007BFF] px-5 py-3 rounded-lg w-[100px]">
+            </div> */}
+            <Checkbox id={"email"} label={"Email Valid"} name={"verify"} register={register}/>
+            <button className="text-sm inline-flex bg-[#007BFF] px-6 py-2 rounded-[6px] disabled:cursor-not-allowed disabled:opacity-70 text-[#F7F9FA]">
               Reset
             </button>
           </div>
